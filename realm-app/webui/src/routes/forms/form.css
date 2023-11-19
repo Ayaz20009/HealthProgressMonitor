@@ -1,0 +1,74 @@
+.form-hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image:  url("../../assets/banner.png");
+  
+    /* Set a specific height */
+    height: 70%;
+  
+    /* Position and center the image to scale nicely on all screens */
+    background-position: 35% 85%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 2%;
+  }
+
+.titleStyle {
+    text-decoration: none;
+    color: white;
+}
+
+.titleStyle:hover {
+    color :#00A35C;
+}
+
+.form-hero-text {
+    text-align: center;
+    color: white;
+    font-family: 'Euclid Circular A', sans-serif;
+}
+.form-div {
+    width: 40%;
+    padding-top: 2%;
+    margin-left: 30%;
+}
+
+.stepper-div {
+    padding-bottom: 5%;
+}
+
+.datePicker {
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    border-color: black;
+    border-width: 0.5px;
+}
+
+.bannerStyle {
+    margin-top: 10px;
+}
+
+.fieldMargin {
+    margin-bottom: 10px;
+}
+
+.navigationRow {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #E8EDEB;
+}
+.navigationStyle {
+    color: black;
+    font-size: 15px;
+}
+
+.navigationRefStyle {
+    color: black;
+    text-decoration: none;
+}
+
+.navigationRefStyle:hover {
+    color: black;
+    text-decoration: underline;
+}

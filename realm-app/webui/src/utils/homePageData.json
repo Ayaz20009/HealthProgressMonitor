@@ -1,0 +1,90 @@
+[
+  {
+    "title": "End to End opportunity SA",
+    "text": "Unlock the full potential of your sales opportunities with our Solution Architects. Our SAs will work from discovery to closing, providing tailored solutions and expert support. Together, we'll seize the opportunity, win deals, and drive remarkable growth.",
+    "img": "end-to-end.jpg",
+    "salesSegment": ["Growth", "Acquisition", "CSMs", "All"],
+    "cardLink": "sa",
+    "leadTime": "2 Days"
+  },
+  {
+    "title": "Discovery/Demo call",
+    "text": "In a discovery/demo call, we provide a personalized and interactive session where we uncover the customer's specific needs and showcase how MongoDB can address them, allowing the customer to experience the power and potential of our platform firsthand.",
+    "img": "disco.jpg",
+    "salesSegment": ["Growth", "Acquisition", "PLS", "CSMs", "All"],
+    "cardLink": "discovery",
+    "leadTime": "2 Days"
+  },
+  {
+    "title": "Webinar",
+    "text": "A webinar is a captivating online seminar focused on MongoDB, featuring live presentations and interactive features that educate, inspire, and drive impactful sales results.",
+    "img": "webinar.jpg",
+    "salesSegment": [
+      "Growth",
+      "Acquisition",
+      "PLS",
+      "CSMs",
+      "Marketing",
+      "Partners",
+      "All"
+    ],
+    "cardLink": "webinar",
+    "leadTime": "6 Days"
+  },
+  {
+    "title": "Workshop",
+    "text": "A workshop is an interactive session that goes beyond a webinar, providing hands-on exercises to explore and apply MongoDB's capabilities, empowering participants to sharpen their skills and unlock its full potential.",
+    "img": "workshop.jpg",
+    "salesSegment": [
+      "Growth",
+      "Acquisition",
+      "PLS",
+      "CSMs",
+      "Marketing",
+      "Partners",
+      "All"
+    ],
+    "cardLink": "workshop",
+    "leadTime": "6 Days"
+  },
+  {
+    "title": "Pre-onboarding",
+    "text": "Make sure customers get to production with all their questions answered so that they can get to consuming as quickly as possible.",
+    "img": "preonboarding.jpg",
+    "salesSegment": ["Growth", "Acquisition", "PLS", "All"],
+    "cardLink": "preonboarding",
+    "leadTime": "1 Day"
+  },
+  {
+    "title": "Search TFW",
+    "text": "Empower your customers with Atlas Search through our expert-led workshop. Discover its features, optimize search functionality in MongoDB, and elevate their projects with ease.",
+    "img": "searchtfw.jpg",
+    "salesSegment": ["PLS", "All"],
+    "cardLink": "searchtfw",
+    "leadTime": "2 Days"
+  },
+  {
+    "title": "New Workload TFW",
+    "text": "Deliver a customized technical workshop to meet your customer's unique project requirements and strengthen their decision to adopt MongoDB.",
+    "img": "fast.jpg",
+    "salesSegment": ["PLS", "All"],
+    "cardLink": "nwtfw",
+    "leadTime": "3 Days"
+  },
+  {
+    "title": "CSM Support",
+    "text": "CSM-specific technical support or technical enablement for the customers you manage, ideally tied to specific opportunities or churn-prevention actions.",
+    "img": "classic.jpg",
+    "salesSegment": ["CSMs", "All"],
+    "cardLink": "csmSupport",
+    "leadTime": "2 Days"
+  },
+  {
+    "title": "Security Questionnaire",
+    "text": "As of May 3rd, the RSC is no longer taking direct requests to complete security questionnaires. The RFP team is now the first point of contact for all Security & Vendor questionnaire requests. To submit a request, please email rfp@mongodb.com and include the information found in this doc.",
+    "img": "questionnaire.jpg",
+    "salesSegment": ["All"],
+    "cardLink": "securityQuest",
+    "leadTime": "N/A"
+  }
+]

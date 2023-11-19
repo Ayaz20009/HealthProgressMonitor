@@ -1,0 +1,61 @@
+.hero-image {
+  background-image: url("../../assets/banner.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  background-position: 35% 85%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.hero-text {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  font-family: "Euclid Circular A", sans-serif;
+}
+
+.searchInputStyle {
+  width: 40%;
+}
+
+.radio-button {
+  margin-top: 10px;
+  height: 6px;
+}
+
+.bodySection {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card-row {
+  margin-left: 100px;
+}
+
+.cards-class {
+  cursor: pointer;
+  width: 22rem;
+}
+
+.cards-class:hover {
+  transform: scale(
+    1.01
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.radio-box-text {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Euclid Circular A", sans-serif;
+  margin: 2px;
+  margin-top: 6px;
+}

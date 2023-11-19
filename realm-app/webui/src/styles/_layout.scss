@@ -1,0 +1,10 @@
+
+$header-height: 60px;
+
+.header {
+  min-height: $header-height;
+}
+
+.main-content {
+  min-height: calc(100vh - $header-height);
+}

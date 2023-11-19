@@ -1,0 +1,59 @@
+[
+    {
+      "title": "Atlas 101",
+      "text": "Technical overview of MongoDB core features. Introduction to MongoDB & Atlas through CRUD exercises, Indexes and Explain, Aggregation Framework.",
+      "img": "end-to-end.jpg",
+      "salesSegment": ["Growth", "Acquisition", "All"],
+      "cardLink": "sa",
+      "leadTime": "2 Days"
+    },
+    {
+      "title": "Analytics on Atlas (Atlas 111)",
+      "text": "Data is valuable, but in order to achieve that value it must be extracted. In this workshop you will learn how to use Atlas for Data Analytics. The workshop is primarily targeted at DBAs with a basic understanding of the value of MongoDB, but who would like to start learning more about how Atlas can be a powerful tool for data analysis.",
+      "img": "disco.jpg",
+      "salesSegment": ["Growth", "Acquisition", "PLS", "All"],
+      "cardLink": "discovery",
+      "leadTime": "2 Days"
+    },
+    {
+      "title": "Atlas 220",
+      "text": "Enhance your MongoDB knowledge by improving your aggregation pipeline and applying strategic data modelling patterns with MongoDB Atlas. Specific design patterns relevant to the customer's industry can be added.",
+      "img": "webinar.jpg",
+      "salesSegment": [
+        "Growth",
+        "Acquisition",
+        "PLS",
+        "CSMs",
+        "Marketing",
+        "Partners",
+        "All"
+      ],
+      "cardLink": "webinar",
+      "leadTime": "6 Days"
+    },
+    {
+      "title": "Atlas Search 225",
+      "text": "Learn about search fundamentals & how to create rich experiences and deliver personalized content for users with full-text search. Lab exercises:",
+      "img": "workshop.jpg",
+      "salesSegment": [
+        "Growth",
+        "Acquisition",
+        "PLS",
+        "CSMs",
+        "Marketing",
+        "Partners",
+        "All"
+      ],
+      "cardLink": "workshop",
+      "leadTime": "6 Days"
+    },
+    {
+      "title": "IoT Time Series - 240",
+      "text": "Time series data is generated everywhere from social media to stock tickers to IoT devices. Analyzing time series data enables organizations to detect, prevent, and predict events ahead of their competition.",
+      "img": "preonboarding.jpg",
+      "salesSegment": ["Growth", "Acquisition", "PLS", "All"],
+      "cardLink": "preonboarding",
+      "leadTime": "1 Day"
+    }
+  ]
+  
