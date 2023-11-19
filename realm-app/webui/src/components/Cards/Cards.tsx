@@ -45,7 +45,6 @@ function Cards({ cardData }: Props) {
       {cardData.map((req, index) => (
         <Col key={req.cardLink} xs={12} sm={6} md={4} lg={2}>
           <Card
-            className={req.cardLink === "sa" ? "colorCard" : "card-styles"}
             as="article"
             contentStyle="clickable"
             onClick={() => {
@@ -59,13 +58,7 @@ function Cards({ cardData }: Props) {
               }
             }}
           >
-            {req.cardLink === "sa" && (
-              <div>
-                <H2>New!!</H2>
-              </div>
-            )}
-            {/* If Not SA - Lower the card a little bit to give space for the "NEW" */}
-            <div className={req.cardLink !== "sa" ? "lowerImage" : ""}>
+            <div>
               <div className="embed-responsive embed-responsive-16by9">
                 <img
                   className="card-img-top embed-responsive-item"

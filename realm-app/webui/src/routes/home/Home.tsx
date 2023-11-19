@@ -15,7 +15,6 @@
  *
  * Author:
  *  - Ayaz Shah (ayaz.shah@mongodb.com)
- *  - Adlai Gordon (adlai.gordon@mongodb.com)
  */
 
 import "../home/Home.css";
@@ -28,7 +27,6 @@ import Cards from "../../components/Cards/Cards";
 import cardData from "../../utils/homePageData.json";
 import { RadioBox, RadioBoxGroup } from "@leafygreen-ui/radio-box-group";
 import { useNavigate } from "react-router-dom";
-import ReactGA from "react-ga4";
 
 
 /*
@@ -98,7 +96,7 @@ export const HomeComponent = ({ isProtected }: Props) => {
         <Row className="hero-image">
           <Col>
             <div className="hero-items">
-              <H1 className="hero-text">CenSoS Intake Form</H1>
+              <H1 className="hero-text">South East SAs Intake Form</H1>
               <SearchInput
                 className="searchInputStyle"
                 size="large"
