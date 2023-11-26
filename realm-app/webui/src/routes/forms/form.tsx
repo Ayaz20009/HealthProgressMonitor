@@ -10,7 +10,6 @@
  *
  * Author:
  *  - Ayaz Shah (ayaz.shah@mongodb.com)
- *  - Adlai Gordon (adlai.gordon@mongodb.com)
  */
 
 import Layout from "../../components/Layout/Layout";
@@ -51,7 +50,6 @@ export const FormComponent = ({ isProtected }: Props) => {
   const { card } = useParams<{ card: string }>();
 
   ReactGA.send({ hitType: "pageview", page: `/form/{card}`, title: card });
-
 
   // Get start date to the nearest 15 minutes
   const getNearestFutureQuarterHour = (date) => {
@@ -117,14 +115,18 @@ export const FormComponent = ({ isProtected }: Props) => {
   const [testFieldHidden, setTestFieldHidden] = useState(true);
 
   /* Set if SFDC Account or Opportunity is Required or not
-  */
+   */
   // Sets default state of required
   const [accountFieldRequired, setAccountFieldRequired] = useState(true);
-  const [accountFieldLabel, setAccountFieldLabel] = useState<string>("Account Name *");
-  const [opportunityFieldRequired, setOpportunityFieldRequired] = useState(true);
-  const [opportunityFieldLabel, setOpportunityFieldLabel] = useState<string>("Salesforce Opportunity Name *");
+  const [accountFieldLabel, setAccountFieldLabel] =
+    useState<string>("Account Name *");
+  const [opportunityFieldRequired, setOpportunityFieldRequired] =
+    useState(true);
+  const [opportunityFieldLabel, setOpportunityFieldLabel] = useState<string>(
+    "Salesforce Opportunity Name *"
+  );
 
-  // Call this function if not required 
+  // Call this function if not required
   const setAccountOppFieldsNotRequired = () => {
     setAccountFieldRequired(false);
     setAccountFieldLabel("Account Name");
@@ -132,7 +134,7 @@ export const FormComponent = ({ isProtected }: Props) => {
     setOpportunityFieldLabel("Salesforce Opportunity Name");
   };
 
-/*
+  /*
     Set the default values for each field
     Also need to create a hidden switch above
   */
@@ -219,9 +221,11 @@ export const FormComponent = ({ isProtected }: Props) => {
   useEffect(() => {
     const currentDate = new Date(startDate);
     currentDate.setDate(currentDate.getDate() + leadTime); // Add leadTime days to the current date
-    if (currentDate.getDay() === 0) { // if date falls on Sunday, add 1 day
-      currentDate.setDate(currentDate.getDate() + 1); 
-    } else if (currentDate.getDay() === 6) { // if date falls on Saturday, add 2 day
+    if (currentDate.getDay() === 0) {
+      // if date falls on Sunday, add 1 day
+      currentDate.setDate(currentDate.getDate() + 1);
+    } else if (currentDate.getDay() === 6) {
+      // if date falls on Saturday, add 2 day
       currentDate.setDate(currentDate.getDate() + 2);
     }
     setStartDate(currentDate); // Update the startDate state with the new calculated date
@@ -305,7 +309,7 @@ export const FormComponent = ({ isProtected }: Props) => {
       setLeadTime(5);
       setSalesSegmentFieldHidden(false);
     } else {
-      navigate(`*`)
+      navigate(`*`);
     }
   }, []);
 
@@ -339,8 +343,7 @@ export const FormComponent = ({ isProtected }: Props) => {
     return String(hour).padStart(2, "0");
   };
 
-
-/* Validation
+  /* Validation
   Determine if a field has a valid value.
   Fail validation if not
 
@@ -464,7 +467,6 @@ export const FormComponent = ({ isProtected }: Props) => {
 
     return validationPassed;
   };
-
 
   /* 
     Build up body of API call to Atlas App Services, which then in turn calls Zendesk
@@ -618,7 +620,7 @@ export const FormComponent = ({ isProtected }: Props) => {
     setAccountList(response.result);
 
     //clean the opp field
-    setSelectedOpp("")
+    setSelectedOpp("");
   };
 
   const selectAccount = async (acct: any) => {
@@ -907,11 +909,15 @@ export const FormComponent = ({ isProtected }: Props) => {
                     Analytics on Atlas - 111
                   </Option>
                   <Option value="Atlas Search - 225">Atlas Search - 225</Option>
-                  <Option value="Atlas  Realm Web - 201">Atlas  Realm Web - 201</Option>
+                  <Option value="Atlas  Realm Web - 201">
+                    Atlas Realm Web - 201
+                  </Option>
                   <Option value="Atlas Aggregation Pipeline - 220">
                     Atlas Aggregation Pipeline - 220
                   </Option>
-                  <Option value="IoT Time Series - 240">IoT Time Series - 240</Option>
+                  <Option value="IoT Time Series - 240">
+                    IoT Time Series - 240
+                  </Option>
                   <Option value="Other">Other</Option>
                 </Select>
               )}
@@ -1049,7 +1055,9 @@ export const FormComponent = ({ isProtected }: Props) => {
                   </Option>
                   <Option value="Time Series">Time Series</Option>
                   <Option value="Microservices">Microservices</Option>
-                  <Option value="Mobile & Web Development">Mobile & Web Development</Option>
+                  <Option value="Mobile & Web Development">
+                    Mobile & Web Development
+                  </Option>
                   <Option value="Internet of Things">Internet of Things</Option>
                   <Option value="TBD">TBD</Option>
                   <Option value="Other">Other</Option>

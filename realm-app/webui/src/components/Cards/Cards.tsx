@@ -54,7 +54,7 @@ function Cards({ cardData }: Props) {
                   "_blank"
                 );
               } else {
-                navigate(`/form/${req.cardLink}`);
+                navigate(`/${req.cardLink}`);
               }
             }}
           >

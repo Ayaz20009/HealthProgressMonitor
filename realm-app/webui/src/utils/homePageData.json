@@ -4,7 +4,7 @@
     "text": "Unlock the full potential of your sales opportunities with our Solution Architects. Our SAs will work from discovery to closing, providing tailored solutions and expert support. Together, we'll seize the opportunity, win deals, and drive remarkable growth.",
     "img": "end-to-end.jpg",
     "salesSegment": ["Growth", "Acquisition", "CSMs", "All"],
-    "cardLink": "sa",
+    "cardLink": "form/sa",
     "leadTime": "2 Days"
   },
   {
@@ -12,7 +12,7 @@
     "text": "In a discovery/demo call, we provide a personalized and interactive session where we uncover the customer's specific needs and showcase how MongoDB can address them, allowing the customer to experience the power and potential of our platform firsthand.",
     "img": "disco.jpg",
     "salesSegment": ["Growth", "Acquisition", "PLS", "CSMs", "All"],
-    "cardLink": "discovery",
+    "cardLink": "earrcalculator",
     "leadTime": "2 Days"
   }
 ]

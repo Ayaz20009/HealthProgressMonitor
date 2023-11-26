@@ -7,6 +7,7 @@ import { LoginCallback, Security } from "@okta/okta-react";
 import Loading from "./routes/Loading";
 import { HomeComponent } from "./routes/home/Home";
 import { FormComponent } from "./routes/forms/form";
+import { EarrCalculator } from "./routes/earrCalculator/earrCalculator"
 import { Logout } from "./routes/logout/Logout";
 import { oktaConfig } from "./lib/oktaConfig";
 
@@ -43,6 +44,14 @@ export const App = () => {
           element={
             <ProtectedRoute>
               <FormComponent isProtected={true} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/earrcalculator"
+          element={
+            <ProtectedRoute>
+              <EarrCalculator isProtected={true} />
             </ProtectedRoute>
           }
         />
