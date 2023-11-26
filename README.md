@@ -1,18 +1,18 @@
-# CenSoS Intake form
+# South East SAs Intake Form
 
-This repo includes the CenSoS Intake Form React application and App Services backend code used. 
+This repo includes the South East SAs Intake Form React application
 
 The front-end is developed using the Leafy library
 https://www.mongodb.design/
 
 
-# Getting started with CenSoS Intake Form Front-End
+# Getting started with South East SAs Intake Form Front-End
 
 This project was created using the React Leafy Library with TS. 
 
 Below are the steps to run the project locally
 
-0. Get the .env file from `Federico Inserra`
+0. Get the .env file from `Ayaz Shah <ayaz.shah@mongodb.com`
 
 1. ### `npm install`
 
