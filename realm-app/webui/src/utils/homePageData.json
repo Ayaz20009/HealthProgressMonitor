@@ -8,7 +8,7 @@
     "leadTime": "2 Days"
   },
   {
-    "title": "Discovery/Demo call",
+    "title": "EARR Calculator",
     "text": "In a discovery/demo call, we provide a personalized and interactive session where we uncover the customer's specific needs and showcase how MongoDB can address them, allowing the customer to experience the power and potential of our platform firsthand.",
     "img": "disco.jpg",
     "salesSegment": ["Growth", "Acquisition", "PLS", "CSMs", "All"],
