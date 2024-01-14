@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { app } from "../../realmApp/realmApp";
 import FormFooter from "@leafygreen-ui/form-footer";
 import * as Realm from "realm-web";
+import { SideNav, SideNavGroup, SideNavItem } from '@leafygreen-ui/side-nav';
+
 
 export const HomeComponent = () => {
 
@@ -33,25 +35,25 @@ export const HomeComponent = () => {
 
   return (
     <Layout>
-      <div>
+      <div className="page-container">
         <Row className="hero-image">
-          <Col>
-            <div className="hero-items">
-              <H1 className="hero-text">Health Progress Monitor</H1>
-            </div>
-          </Col>
+            <Col>
+                <div className="hero-items">
+                    <H1 className="hero-text">Health Progress Monitor</H1>
+                </div>
+            </Col>
         </Row>
-        <Row>
-          <Col>
-            <FormFooter
-              onClick={testing}
-              primaryButton={{
-                text: 'Submit',
-              }}
-            />
-          </Col>
+        <Row className="content">
+            {/* Other content goes here */}
         </Row>
-      </div>
+        <Row className="footer-row">
+            <Col>
+                
+            </Col>
+        </Row>
+    </div>
     </Layout>
+
+
   );
 };

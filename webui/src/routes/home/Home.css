@@ -22,8 +22,22 @@
   font-family: "Euclid Circular A", sans-serif;
 }
 
+.layout-container { /* Assuming this class is for the Layout component */
+  height: 100vh;
+  overflow: hidden; /* This prevents scrolling within the Layout component */
+}
 
-.bodySection {
-  margin-left: 100px;
-  margin-right: 100px;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Changed from 100vh to 100% to fill the Layout component */
+}
+
+.content {
+  flex-grow: 1;
+  overflow: auto; /* Allows scrolling within content if needed */
+}
+
+.footer-row {
+  margin-top: auto;
 }
