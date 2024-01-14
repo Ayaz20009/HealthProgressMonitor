@@ -29,22 +29,7 @@ import { RadioBox, RadioBoxGroup } from "@leafygreen-ui/radio-box-group";
 import { useNavigate } from "react-router-dom";
 
 
-/*
- * Google Analytics: Report a custom event
-ReactGA.event({
-  category: "your category",
-  action: "your action",
-  label: "your label", // optional
-  value: 99, // optional, must be a number
-  nonInteraction: true, // optional, true/false
-  transport: "xhr", // optional, beacon/xhr/image
-});
-*/
 
-
-interface Props {
-  isProtected: boolean;
-}
 
 interface CardData {
   title: string;
@@ -59,7 +44,7 @@ interface SearchResults {
   title: string;
 }
 
-export const HomeComponent = ({ isProtected }: Props) => {
+export const HomeComponent = () => {
   const [cards, setCards] = useState<CardData[]>([]);
   const [selectedOption, setSelectedOption] = useState("All");
   const [cardSearchValue, setCardSearchValue] = useState("");

@@ -9,7 +9,7 @@ const Loading: React.FC = () => {
     <Container className="bg-white login-container border pt-5 d-flex flex-row text-center ">
       <Col className="p-5">
         <MongoDBLogoMark height={40} />
-        <Body className="login-title" baseFontSize={16} weight="medium">CenSoS Intake Form</Body>
+        <Body className="login-title" baseFontSize={16} weight="medium">Health Progress Monitor</Body>
         <Row className="my-4 py-4 text-center">
           <H3>Loading...</H3>
         </Row>
