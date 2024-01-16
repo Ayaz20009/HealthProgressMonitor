@@ -1,0 +1,19 @@
+// Extract checkups array to new collection with patient_ids
+[
+    {
+        $unwind: "$checkups"
+    },
+    {
+        $addFields: {
+            "checkups.patient_id": "$_id"
+        }
+    },
+    {
+        $replaceRoot: {
+            newRoot: "$checkups"
+        }
+    },
+    {
+        $out: "checkups"
+    }
+]
