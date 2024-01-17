@@ -165,58 +165,57 @@ export const HomeComponent = () => {
           <Col></Col>
         </Row>
         <Row className="content">
-  <Col></Col>
-  <Col xs={12} md={10} lg={10}>
-    <Row>
-      {/* Chart 1 */}
-      <Col md={6}>
-        <Chart
-          height={"600px"}
-          width={"100%"} // Set to 100% to use full width of the column
-          filter={filterPatient}
-          chartId={"65a8019c-feab-4394-8193-982f39323a91"}
-        />
-      </Col>
-      
-      {/* Chart 2 */}
-      <Col md={6}>
-        <Chart
-          height={"600px"}
-          width={"100%"} // Set to 100% to use full width of the column
-          filter={filterPatient}
-          chartId={"65a821fa-2d96-48b7-8be4-d84ebac4cdfd"}
-        />
-      </Col>
-    </Row>
+          <Col></Col>
+          <Col xs={12} md={10} lg={10}>
+            <Row>
+              <Col md={6}>
+                <Chart
+                  height={"600px"}
+                  width={"100%"}
+                  filter={filterPatient}
+                  chartId={"65a8019c-feab-4394-8193-982f39323a91"}
+                />
+              </Col>
 
-    <Card as="article" contentStyle="clickable">
-      <H3 className="title">Summary of the last visits for {patientInfo}</H3>
-      <Body className="body">{summary}</Body>
-    </Card>
+              <Col md={6}>
+                <Chart
+                  height={"600px"}
+                  width={"100%"}
+                  filter={filterPatient}
+                  chartId={"65a821fa-2d96-48b7-8be4-d84ebac4cdfd"}
+                />
+              </Col>
+            </Row>
 
-    <TextArea
-      className="fieldMargin"
-      baseFontSize={13}
-      label="Notes / Input"
-      description=""
-      value={summary}
-      onChange={(event) => setNotesValue(event.target.value)}
-    />
+            <Card as="article" contentStyle="clickable">
+              <H3 className="title">
+                Summary of the last visits for {patientInfo}
+              </H3>
+              <Body className="body">{summary}</Body>
+            </Card>
 
-    <Button
-      className="button-container"
-      darkMode={true}
-      disabled={false}
-      onClick={upload}
-    >
-      Find Similar Cases
-    </Button>
+            <TextArea
+              className="fieldMargin"
+              baseFontSize={13}
+              label="Notes / Input"
+              description=""
+              value={summary}
+              onChange={(event) => setNotesValue(event.target.value)}
+            />
 
-    <CasesCard cardData={casesCards} />
-  </Col>
-  <Col></Col>
-</Row>
+            <Button
+              className="button-container"
+              darkMode={true}
+              disabled={false}
+              onClick={upload}
+            >
+              Find Similar Cases
+            </Button>
 
+            <CasesCard cardData={casesCards} />
+          </Col>
+          <Col></Col>
+        </Row>
 
         <Row className="content">
           <Col></Col>
