@@ -6,7 +6,7 @@
 
 __Demonstrate Atlas Vector Search and RAG using a doctor's notes from patient visits.__
 
-__SA Maintainers__: [Ayaz Shah](mailto:ayaz.shah@mongodb.com), [Charlie Little](mailto:charlie.little@mongodb.com), [John Belz](mailto:john.belz@mongodb.com), [Rocha DaSilva](mailto:marcelo.rocha@mongodb.com), [Matt Davis](mailto:matt.davis@mongodb.com), [David Hiltenbrand](mailto:david.hiltenbrand@mongodb.com), [Sahil Kedar](mailto:sahil.kedar@mongodb.com) <br/>
+__SA Maintainers__: [Ayaz Shah](mailto:ayaz.shah@mongodb.com), [Rosston Ritter](mailto:rosston.ritter@mongodb.com), [Charlie Little](mailto:charlie.little@mongodb.com), [John Belz](mailto:john.belz@mongodb.com), [Rocha DaSilva](mailto:marcelo.rocha@mongodb.com), [Matt Davis](mailto:matt.davis@mongodb.com), [David Hiltenbrand](mailto:david.hiltenbrand@mongodb.com), [Sahil Kedar](mailto:sahil.kedar@mongodb.com) <br/>
 __Time to setup__: 15 mins <br/>
 __Time to execute__: 15 mins <br/>
 
