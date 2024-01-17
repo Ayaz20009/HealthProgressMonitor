@@ -195,7 +195,7 @@ export const HomeComponent = () => {
             </Card>
 
             <TextArea
-              className="fieldMargin"
+              className="notes-input-hidden"
               baseFontSize={13}
               label="Notes / Input"
               description=""
