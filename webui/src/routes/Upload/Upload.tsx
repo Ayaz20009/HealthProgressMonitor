@@ -46,20 +46,21 @@ export const Upload = () => {
     setSuccessToastOpen(false);
     setProgressToastOpen(true);
     if (user === undefined) return;
-    setCasesCards([])
+    setCasesCards([]);
 
     const result = await user.functions.similarityCheck(notesValue);
-    setCasesCards(result)
+    setCasesCards(result);
     console.log(notesValue);
     console.log(result);
-    let doctorNotesArray = result.map(doc => doc.doctor_notes);
+    let doctorNotesArray = result.map((doc) => doc.doctor_notes);
     console.log(doctorNotesArray);
     let queryObj = {
-      "queryObj": notesValue,
-      "similarObjs": doctorNotesArray
-    }
-    const similarDocsSummary = await user.functions.similaritiesBetweenDocuments(queryObj);
-    setSimilarSummary(similarDocsSummary)
+      queryObj: notesValue,
+      similarObjs: doctorNotesArray,
+    };
+    const similarDocsSummary =
+      await user.functions.similaritiesBetweenDocuments(queryObj);
+    setSimilarSummary(similarDocsSummary);
     setSuccessToastOpen(true);
     setProgressToastOpen(false);
     console.log(similarDocsSummary);
@@ -69,26 +70,26 @@ export const Upload = () => {
     <Layout>
       <div className="page-container">
         <Row className="mt-5">
-            <Col>
-                <TextArea
-                    className="fieldMargin"
-                    baseFontSize={13}
-                    label="Notes"
-                    description=""
-                    value={notesValue}
-                    onChange={(event) => setNotesValue(event.target.value)}
-                />
-                {/* <FileUpload onDrop={onDrop} /> */}
-                <Button
-                    className="button-container"
-                    darkMode={true}
-                    disabled={false}
-                    onClick={upload}
-                >
-                    Find Similar Cases
-                </Button>
-                <CasesCard cardData={casesCards} />
-            </Col>
+          <Col>
+            <TextArea
+              className="fieldMargin"
+              baseFontSize={13}
+              label="Notes / Input"
+              description=""
+              value={notesValue}
+              onChange={(event) => setNotesValue(event.target.value)}
+            />
+            {/* <FileUpload onDrop={onDrop} /> */}
+            <Button
+              className="button-container"
+              darkMode={true}
+              disabled={false}
+              onClick={upload}
+            >
+              Find Similar Cases
+            </Button>
+            <CasesCard cardData={casesCards} />
+          </Col>
         </Row>
         <Row className="content">
           <Col></Col>
@@ -99,7 +100,7 @@ export const Upload = () => {
           <Col></Col>
           <Col xs={12} md={10} lg={10}>
             <Card as="article" contentStyle="clickable">
-              {/* <H3 className="title">Summary of the last visits for </H3> */}
+              <H3 className="title">Talk track</H3>
               <Body className="body">{similarSummary}</Body>
             </Card>
           </Col>
@@ -119,7 +120,7 @@ export const Upload = () => {
           open={successToastOpen}
           close={() => setSuccessToastOpen(false)}
         />
-    </div>
+      </div>
     </Layout>
   );
 };

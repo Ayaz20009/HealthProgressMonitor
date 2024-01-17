@@ -1,33 +1,27 @@
 import "../home/Home.css";
 import { Col, Row } from "react-bootstrap";
-import { H1 } from "@leafygreen-ui/typography";
 import Layout from "../../components/Layout/Layout";
 import { useState, useEffect } from "react";
 import { app } from "../../realmApp/realmApp";
 import * as Realm from "realm-web";
-import axios from "axios";
 
 import Toast from "@leafygreen-ui/toast";
-import { H2, H3, Body } from "@leafygreen-ui/typography";
+import { H3, Body } from "@leafygreen-ui/typography";
 //
-import TextInput from "@leafygreen-ui/text-input";
-import Callout from "@leafygreen-ui/callout";
-import Button from "@leafygreen-ui/button";
+// import TextInput from "@leafygreen-ui/text-input";
+// import Callout from "@leafygreen-ui/callout";
+// import Button from "@leafygreen-ui/button";
 import Card from "@leafygreen-ui/card";
 import { SearchInput, SearchResult } from "@leafygreen-ui/search-input";
+import Button from "@leafygreen-ui/button";
+import TextArea from "@leafygreen-ui/text-area";
 //
 import Chart from "../../components/Charts/Chart";
+import CasesCard from "../../components/Card/CasesCard/CasesCard";
 
 export const HomeComponent = () => {
   const [user, setUser] = useState<any>();
   const [value, setValue] = useState("");
-  const [isAccountSelected, setIsAccountSelected] = useState(false);
-  const [accountInfo, setAccountInfo] = useState("");
-  const [accountList, setAccountList] = useState([]);
-  const [selectedOpp, setSelectedOpp] = useState("");
-  const [oppsList, setOppsList] = useState([]);
-  const [disableOpp, setDisableOpp] = useState(true);
-  const [accountId, setAccountId] = useState("");
   const [successToastOpen, setSuccessToastOpen] = useState(false);
   const [progressToastOpen, setProgressToastOpen] = useState(false);
   const [checkupsList, setCheckupsList] = useState([]);
@@ -38,9 +32,15 @@ export const HomeComponent = () => {
   const [isPatientSelected, setIsPatientSelected] = useState(false);
   const [summary, setSummary] = useState("");
 
+  // Upload stuff
+  const [file, setFile] = useState<any>();
+  const [notesValue, setNotesValue] = useState("");
+  const [casesCards, setCasesCards] = useState([]);
+  const [similarSummary, setSimilarSummary] = useState([]);
+  // const [successToastOpen, setSuccessToastOpen] = useState(false);
+  // const [progressToastOpen, setProgressToastOpen] = useState(false);
+
   // CHARTS stuff //
-  // const url = "https://charts.mongodb.com/charts-hackathon-fy24-wkkws";
-  // const [patients, setPatients] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState("");
   const [filterPatient, setFilterPatient] = useState({});
 
@@ -49,6 +49,7 @@ export const HomeComponent = () => {
       setFilterPatient({ patient: selectedPatient });
     }
   }, [selectedPatient]);
+  // End CHARTS stuff
 
   useEffect(() => {
     //Runs only on the first render
@@ -103,18 +104,31 @@ export const HomeComponent = () => {
     setSummary(response);
     setSuccessToastOpen(true);
     setProgressToastOpen(false);
-    console.log(response);
   };
 
-  const findAllPatients = async () => {
-    const response = await user.functions.findAllPatients();
-    setPatientList(response);
-  };
+  const upload = async () => {
+    setSuccessToastOpen(false);
+    setProgressToastOpen(true);
+    if (user === undefined) return;
+    setCasesCards([]);
 
-  useEffect(() => {
-    findAllPatients();
-    return;
-  }, []);
+    const result = await user.functions.similarityCheck(notesValue);
+    setCasesCards(result);
+    console.log(notesValue);
+    console.log(result);
+    let doctorNotesArray = result.map((doc) => doc.doctor_notes);
+    console.log(doctorNotesArray);
+    let queryObj = {
+      queryObj: notesValue,
+      similarObjs: doctorNotesArray,
+    };
+    const similarDocsSummary =
+      await user.functions.similaritiesBetweenDocuments(queryObj);
+    setSimilarSummary(similarDocsSummary);
+    setSuccessToastOpen(true);
+    setProgressToastOpen(false);
+    console.log(similarDocsSummary);
+  };
 
   return (
     <Layout>
@@ -158,24 +172,6 @@ export const HomeComponent = () => {
               height="480"
               src="https://charts.mongodb.com/charts-hackathon-fy24-wkkws/embed/charts?id=65a8019c-feab-4394-8193-982f39323a91&maxDataAge=3600&theme=light&autoRefresh=true"
             ></iframe> */}
-            {/* <div className="form">
-              {!patientList
-                ? "Loading patient list"
-                : patientList.map((p) => (
-                    <div className="elem" key={p}>
-                      <input
-                        type="radio"
-                        name="patient"
-                        value={p}
-                        onChange={() => setSelectedPatient(p)}
-                        checked={p === selectedPatient}
-                      />
-                      <label htmlFor={p} title={p}>
-                        {p}
-                      </label>
-                    </div>
-                  ))}
-            </div> */}
             <div className="charts">
               <Chart
                 height={"600px"}
@@ -183,14 +179,59 @@ export const HomeComponent = () => {
                 filter={filterPatient}
                 chartId={"65a8019c-feab-4394-8193-982f39323a91"}
               />
+              <Chart
+                height={"600px"}
+                width={"800px"}
+                filter={filterPatient}
+                chartId={"65a821fa-2d96-48b7-8be4-d84ebac4cdfd"}
+              />
             </div>
             <Card as="article" contentStyle="clickable">
-              <H3 className="title">Summary of the last visits for </H3>
+              <H3 className="title">
+                Summary of the last visits for {patientInfo}
+              </H3>
               <Body className="body">{summary}</Body>
+            </Card>
+
+            <TextArea
+              className="fieldMargin"
+              baseFontSize={13}
+              label="Notes / Input"
+              description=""
+              // value={notesValue}
+              value={summary}
+              onChange={(event) => setNotesValue(event.target.value)}
+            />
+            {/* <FileUpload onDrop={onDrop} /> */}
+            <Button
+              className="button-container"
+              darkMode={true}
+              disabled={false}
+              onClick={upload}
+            >
+              Find Similar Cases
+            </Button>
+            <CasesCard cardData={casesCards} />
+          </Col>
+          <Col></Col>
+        </Row>
+
+        <Row className="content">
+          <Col></Col>
+          <Col xs={12} md={10} lg={10}></Col>
+          <Col></Col>
+        </Row>
+        <Row className="content">
+          <Col></Col>
+          <Col xs={12} md={10} lg={10}>
+            <Card as="article" contentStyle="clickable">
+              <H3 className="title">Talk track</H3>
+              <Body className="body">{similarSummary}</Body>
             </Card>
           </Col>
           <Col></Col>
         </Row>
+
         <Toast
           variant="progress"
           title="Creating Summary of the patient's last visits"
