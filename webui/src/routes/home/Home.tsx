@@ -187,9 +187,9 @@ export const HomeComponent = () => {
               </Col>
             </Row>
 
-            <Card as="article" contentStyle="clickable">
+            <Card className="summaryCard" as="article" contentStyle="clickable">
               <H3 className="title">
-                Summary of the last visits for {patientInfo}
+                Summary of all visits
               </H3>
               <Body className="body">{summary}</Body>
             </Card>
