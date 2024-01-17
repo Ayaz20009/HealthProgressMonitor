@@ -22,7 +22,7 @@ export default function Header(props: HeaderProps) {
     } else if (index === 1) {
       navigate("/upload");
       setSelected(1);
-    }
+    } 
   };
 
   return (
@@ -40,8 +40,8 @@ export default function Header(props: HeaderProps) {
         selected={selected}
         aria-labelledby="tabs-label"
       >
-        <Tab name="Dashboard"></Tab>
-        <Tab name="Upload"></Tab>
+        <Tab name="Overview"></Tab>
+        <Tab name="Search Similar Cases"></Tab>
       </Tabs>
     </header>
   );

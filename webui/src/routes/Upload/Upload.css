@@ -1,0 +1,47 @@
+.page-container {
+    padding: 20px; /* Adds space around the entire container */
+}
+
+.button-container {
+    display: block; /* Makes the button a block element */
+    margin-left: auto; /* Aligns the button to the right */
+    margin-top: 20px; /* Adds space above the button */
+}
+
+
+
+/* Ensures the entire row is centered and spaced */
+.content {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Styles for the column containing the TextArea and Button */
+.mt-5 > Col {
+    display: flex;
+    flex-direction: row; /* Arrange items horizontally */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Space between TextArea and Button */
+    gap: 20px; /* Space between elements */
+}
+
+/* Styles for the TextArea */
+.fieldMargin {
+    flex-grow: 1; /* TextArea takes up available space */
+    margin-right: 20px; /* Spacing between TextArea and Button */
+}
+
+
+/* Ensures Cards are of equal height */
+.content > Col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This will make the children (cards) stretch to fill the column */
+}
+
+/* Styles for the individual cards */
+.Card, .CasesCard {
+    flex: 1; /* This makes both cards grow to fill the available space */
+    margin: 10px 0; /* Spacing around cards */
+}
