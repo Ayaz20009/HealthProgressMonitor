@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { app } from "../../realmApp/realmApp";
 import * as Realm from "realm-web";
 
+import Toast from "@leafygreen-ui/toast";
 import { H2, H3, Body } from "@leafygreen-ui/typography";
 //
 import TextInput from "@leafygreen-ui/text-input";
@@ -24,7 +25,8 @@ export const HomeComponent = () => {
   const [oppsList, setOppsList] = useState([]);
   const [disableOpp, setDisableOpp] = useState(true);
   const [accountId, setAccountId] = useState("");
-
+  const [successToastOpen, setSuccessToastOpen] = useState(false);
+  const [progressToastOpen, setProgressToastOpen] = useState(false);
   const [checkupsList, setCheckupsList] = useState([]);
 
   const [patientList, setPatientList] = useState([]);
@@ -81,8 +83,13 @@ export const HomeComponent = () => {
     setPatientInfo(patient.name)
     let patient_id = patient.patient_id;
 
+    setSuccessToastOpen(false);
+    setProgressToastOpen(true);
+
     const response = await user.functions.create_summary(patient_id);
     setSummary(response)
+    setSuccessToastOpen(true);
+    setProgressToastOpen(false);
     console.log(response);
     
   };
@@ -125,13 +132,26 @@ export const HomeComponent = () => {
           <Col></Col>
           <Col xs={12} md={10} lg={10}>
               <Card as="article" contentStyle="clickable">
-          
               <H3 className="title">Summary of the last visits for </H3>
               <Body className="body">{summary}</Body>
             </Card>
           </Col>
           <Col></Col>
         </Row>
+        <Toast
+          variant="progress"
+          title="Creating Summary of the patient's last visits"
+          body="Sending your notes to our super computers"
+          open={progressToastOpen}
+          close={() => setProgressToastOpen(false)}
+        />
+        <Toast
+          variant="success"
+          title="Summary created successfully"
+          body=""
+          open={successToastOpen}
+          close={() => setSuccessToastOpen(false)}
+        />
       </div>
     </Layout>
   );
