@@ -1,27 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.5d47791a.css",
-    "main.js": "/static/js/main.7a24c0ce.js",
+    "main.css": "/static/css/main.2d72ebe2.css",
+    "main.js": "/static/js/main.f0951e1c.js",
     "static/js/787.ac6d4ea7.chunk.js": "/static/js/787.ac6d4ea7.chunk.js",
-    "static/media/webinar.jpg": "/static/media/webinar.2fc8589bfbf0b059ea37.jpg",
-    "static/media/disco.jpg": "/static/media/disco.3ff9124048d7331d8ee0.jpg",
-    "static/media/robot.jpg": "/static/media/robot.4930c4089b0dbcadda4f.jpg",
-    "static/media/workshop.jpg": "/static/media/workshop.76c4344da2119d02a7fb.jpg",
-    "static/media/fast.jpg": "/static/media/fast.86097885c167530d1ff8.jpg",
-    "static/media/preonboarding.jpg": "/static/media/preonboarding.661fb04307f22136b604.jpg",
-    "static/media/searchtfw.jpg": "/static/media/searchtfw.6bf1ee60dd9f6f11b4a1.jpg",
-    "static/media/classic.jpg": "/static/media/classic.989cebd1149859c3c16d.jpg",
     "static/media/banner.png": "/static/media/banner.60d6609662d02bab739b.png",
-    "static/media/end-to-end.jpg": "/static/media/end-to-end.586aa798ca641f51f0e4.jpg",
-    "static/media/questionnaire.jpg": "/static/media/questionnaire.ff1fc6633e35894b6873.jpg",
-    "static/media/mongo_hero.png": "/static/media/mongo_hero.d86c7eaac1e5a9022e32.png",
     "index.html": "/index.html",
-    "main.5d47791a.css.map": "/static/css/main.5d47791a.css.map",
-    "main.7a24c0ce.js.map": "/static/js/main.7a24c0ce.js.map",
+    "main.2d72ebe2.css.map": "/static/css/main.2d72ebe2.css.map",
+    "main.f0951e1c.js.map": "/static/js/main.f0951e1c.js.map",
     "787.ac6d4ea7.chunk.js.map": "/static/js/787.ac6d4ea7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d47791a.css",
-    "static/js/main.7a24c0ce.js"
+    "static/css/main.2d72ebe2.css",
+    "static/js/main.f0951e1c.js"
   ]
 }
