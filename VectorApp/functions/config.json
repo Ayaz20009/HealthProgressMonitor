@@ -1,0 +1,42 @@
+[
+    {
+        "name": "create_summary",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "Create_Embeddings_2",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "search_patient_name_auto",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "search_checkups_by_patient_id",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "fileUpload",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "similarityCheck",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "similaritiesBetweenDocuments",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "findAllPatients",
+        "private": false,
+        "disable_arg_logs": true
+    }
+]

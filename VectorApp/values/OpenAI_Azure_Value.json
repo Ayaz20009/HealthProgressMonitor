@@ -1,0 +1,5 @@
+{
+    "name": "OpenAI_Azure_Value",
+    "value": "OpenAI_Azure_Secret",
+    "from_secret": true
+}
