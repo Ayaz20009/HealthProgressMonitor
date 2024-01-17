@@ -11,17 +11,25 @@ import Callout from "@leafygreen-ui/callout";
 import Button from "@leafygreen-ui/button";
 import Card from "@leafygreen-ui/card";
 import { SearchInput, SearchResult } from "@leafygreen-ui/search-input";
+import PatientCard from "../../components/Card/PatientCard";
 
 export const PatientOverview = () => {
   const [user, setUser] = useState<any>();
   const [value, setValue] = useState("");
   const [isAccountSelected, setIsAccountSelected] = useState(false);
-  const [accountInfo, setAccountInfo] = useState("");
+  const [isPatientSelected, setIsPatientSelected] = useState(false);
+  // const [accountInfo, setAccountInfo] = useState("");
+  const [patientInfo, setPatientInfo] = useState("");
   const [accountList, setAccountList] = useState([]);
+  const [patientList, setPatientList] = useState([]);
   const [selectedOpp, setSelectedOpp] = useState("");
+  const [selectedCheckup, setSelectedCheckup] = useState("");
   const [oppsList, setOppsList] = useState([]);
+  const [checkupsList, setCheckupsList] = useState([]);
   const [disableOpp, setDisableOpp] = useState(true);
+  const [disableCheckup, setDisableCheckup] = useState(true);
   const [accountId, setAccountId] = useState("");
+  const [patientId, setPatientId] = useState("");
 
   useEffect(() => {
     //Runs only on the first render
@@ -43,10 +51,10 @@ export const PatientOverview = () => {
     console.log(result);
   };
 
-  const searchAccount = async (event: any) => {
-    if (isAccountSelected) {
+  const searchPatient = async (event: any) => {
+    if (isPatientSelected) {
       // Reset the flag once we've ignored one change.
-      setIsAccountSelected(false);
+      setIsPatientSelected(false);
       return;
     }
 
@@ -54,10 +62,10 @@ export const PatientOverview = () => {
 
     if (user === undefined) return;
 
-    setAccountInfo(searchQuery);
+    setPatientInfo(searchQuery);
 
     if (searchQuery.length < 3) {
-      setAccountList([]);
+      setPatientList([]);
       return;
     }
 
@@ -65,24 +73,32 @@ export const PatientOverview = () => {
 
     const response = await user.functions.search_patient_name_auto(search);
 
-    setAccountList(response.result);
+    setPatientList(response.result);
 
     //clean the opp field
-    setSelectedOpp("");
+    setSelectedCheckup("");
   };
 
-  const selectAccount = async (acct: any) => {
-    setIsAccountSelected(true);
+  const selectPatient = async (patient: any) => {
+    setIsPatientSelected(true);
+    let search = patient.patient_id;
 
-    let search = { account_id: acct._id };
+    const response = await user.functions.search_checkups_by_patient_id(search);
+    setCheckupsList(response.result);
+    setDisableCheckup(false);
+    setPatientInfo(patient);
+    setPatientId(patient.patient_id);
+  };
 
-    const response = await user.functions.search_opp(search);
+  const createSummaryByPatientId = async (patient: any) => {
+    setIsPatientSelected(true);
+    let search = patient.patient_id;
 
-    // setOppsList(response.result);
-    setDisableOpp(false);
-
-    setAccountInfo(acct.nm);
-    setAccountId(acct._id);
+    const response = await user.functions.create_summary(search);
+    setCheckupsList(response.result);
+    setDisableCheckup(false);
+    setPatientInfo(patient);
+    setPatientId(patient.patient_id);
   };
 
   return (
@@ -93,24 +109,25 @@ export const PatientOverview = () => {
           <Col xs={12} md={10} lg={10}>
             <div className="searchInput-container">
               <SearchInput
-                id="accountName"
+                id="patientName"
                 className="fieldMargin"
-                value={accountInfo}
-                onChange={(event) => searchAccount(event)}
-                aria-label="Account Name"
+                value={patientInfo}
+                onChange={(event) => searchPatient(event)}
+                aria-label="Patient Name"
               >
-                {accountList.map((acct: any, index) => {
+                {patientList.map((patient: any, index) => {
                   return (
                     <SearchResult
-                      // onClick={() => selectAccount(acct)}
-                      onClick={() => alert({ acct })}
+                      onClick={() => selectPatient(patient)}
+                      // onClick={() => alert({ acct })}
                       key={index}
                     >
-                      {acct.name}
+                      {patient.name} - {patient.patient_id}
                     </SearchResult>
                   );
                 })}
               </SearchInput>
+              <pre>{JSON.stringify(patientInfo)}</pre>
             </div>
             {/* <TextInput
               label="Patient Name"
@@ -137,6 +154,8 @@ export const PatientOverview = () => {
             <Card className="card-styles" as="article">
               This is my card component
             </Card>
+
+            {/* <PatientCard name={patientInfo} /> */}
           </Col>
           <Col></Col>
         </Row>

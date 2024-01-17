@@ -91,7 +91,31 @@ export const HomeComponent = () => {
         <Row className="content">
           <Col></Col>
           <Col xs={12} md={10} lg={10}>
-            <div className="searchInput-container">
+            <Button
+              className="button-container"
+              darkMode={true}
+              disabled={false}
+              href="/patient"
+            >
+              Patient View
+            </Button>
+            <Button
+              className="button-container"
+              darkMode={true}
+              disabled={false}
+              href="/cases"
+            >
+              Cases View
+            </Button>
+            <Button
+              className="button-container"
+              darkMode={true}
+              disabled={false}
+              href="/upload"
+            >
+              Upload View
+            </Button>
+            {/* <div className="searchInput-container">
               <SearchInput
                 id="accountName"
                 className="fieldMargin"
@@ -110,7 +134,7 @@ export const HomeComponent = () => {
                   );
                 })}
               </SearchInput>
-            </div>
+            </div> */}
             {/* <TextInput
               label="Patient Name"
               description=" "
@@ -120,22 +144,22 @@ export const HomeComponent = () => {
               }}
               value={value}
             /> */}
-            <Button
+            {/* <Button
               className="button-container"
               darkMode={true}
               disabled={false}
             >
               Generate patient synopsis
-            </Button>
+            </Button> */}
             {/* <Callout title="Title">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book.
             </Callout> */}
-            <Card className="card-styles" as="article">
+            {/* <Card className="card-styles" as="article">
               This is my card component
-            </Card>
+            </Card> */}
           </Col>
           <Col></Col>
         </Row>
