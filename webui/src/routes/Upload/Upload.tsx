@@ -37,10 +37,12 @@ export const Upload = () => {
 
   const upload = async () => {
     if (user === undefined) return;
+    setCasesCards([])
+
 
     const result = await user.functions.similarityCheck(notesValue);
     setCasesCards(result)
-    console.log(casesCards);
+    console.log(result);
   };
 
   const onDrop = useCallback(async (acceptedFiles) => {

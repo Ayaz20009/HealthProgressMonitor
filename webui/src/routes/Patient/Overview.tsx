@@ -11,7 +11,7 @@ import Callout from "@leafygreen-ui/callout";
 import Button from "@leafygreen-ui/button";
 import Card from "@leafygreen-ui/card";
 import { SearchInput, SearchResult } from "@leafygreen-ui/search-input";
-import PatientCard from "../../components/Card/PatientCard";
+// import PatientCard from "../../components/Card/PatientCard/PatientCard";
 
 export const PatientOverview = () => {
   const [user, setUser] = useState<any>();
@@ -28,7 +28,6 @@ export const PatientOverview = () => {
   const [checkupsList, setCheckupsList] = useState([]);
   const [disableOpp, setDisableOpp] = useState(true);
   const [disableCheckup, setDisableCheckup] = useState(true);
-  const [accountId, setAccountId] = useState("");
   const [patientId, setPatientId] = useState("");
 
   useEffect(() => {
@@ -84,10 +83,12 @@ export const PatientOverview = () => {
     let search = patient.patient_id;
 
     const response = await user.functions.search_checkups_by_patient_id(search);
-    setCheckupsList(response.result);
-    setDisableCheckup(false);
-    setPatientInfo(patient);
-    setPatientId(patient.patient_id);
+
+
+    // setCheckupsList(response.result);
+    // setDisableCheckup(false);
+    // setPatientInfo(patient);
+    // setPatientId(patient.patient_id);
   };
 
   const createSummaryByPatientId = async (patient: any) => {

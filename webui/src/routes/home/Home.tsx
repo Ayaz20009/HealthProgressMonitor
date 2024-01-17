@@ -5,6 +5,8 @@ import Layout from "../../components/Layout/Layout";
 import { useState, useEffect } from "react";
 import { app } from "../../realmApp/realmApp";
 import * as Realm from "realm-web";
+
+import { H2, H3, Body } from "@leafygreen-ui/typography";
 //
 import TextInput from "@leafygreen-ui/text-input";
 import Callout from "@leafygreen-ui/callout";
@@ -23,6 +25,16 @@ export const HomeComponent = () => {
   const [disableOpp, setDisableOpp] = useState(true);
   const [accountId, setAccountId] = useState("");
 
+  const [checkupsList, setCheckupsList] = useState([]);
+
+  const [patientList, setPatientList] = useState([]);
+
+  const [patientInfo, setPatientInfo] = useState("");
+
+  const [isPatientSelected, setIsPatientSelected] = useState(false);
+  const [summary, setSummary] = useState("");
+
+
   useEffect(() => {
     //Runs only on the first render
     loginApiKey(process.env.REACT_APP_REALM_API_KEY); // add generated API key in .env file
@@ -36,17 +48,10 @@ export const HomeComponent = () => {
     setUser(await app.logIn(credentials));
   };
 
-  const testing = async () => {
-    if (user === undefined) return;
-
-    const result = await user.functions.testFunction();
-    console.log(result);
-  };
-
-  const searchAccount = async (event: any) => {
-    if (isAccountSelected) {
+  const searchPatient = async (event: any) => {
+    if (isPatientSelected) {
       // Reset the flag once we've ignored one change.
-      setIsAccountSelected(false);
+      setIsPatientSelected(false);
       return;
     }
 
@@ -54,35 +59,32 @@ export const HomeComponent = () => {
 
     if (user === undefined) return;
 
-    setAccountInfo(searchQuery);
+    setPatientInfo(searchQuery);
 
     if (searchQuery.length < 3) {
-      setAccountList([]);
+      setPatientList([]);
       return;
     }
 
     let search = { searchTerm: searchQuery };
 
-    const response = await user.functions.search_account(search);
+    const response = await user.functions.search_patient_name_auto(search);
 
-    setAccountList(response.result);
+    setPatientList(response.result);
 
-    //clean the opp field
-    setSelectedOpp("");
   };
 
-  const selectAccount = async (acct: any) => {
-    setIsAccountSelected(true);
+  const selectPatient = async (patient: any) => {
+    setIsPatientSelected(true);
+    console.log(patient);
+    
+    setPatientInfo(patient.name)
+    let patient_id = patient.patient_id;
 
-    let search = { account_id: acct._id };
-
-    const response = await user.functions.search_opp(search);
-
-    setOppsList(response.result);
-    setDisableOpp(false);
-
-    setAccountInfo(acct.nm);
-    setAccountId(acct._id);
+    const response = await user.functions.create_summary(patient_id);
+    setSummary(response)
+    console.log(response);
+    
   };
 
   return (
@@ -91,75 +93,42 @@ export const HomeComponent = () => {
         <Row className="content">
           <Col></Col>
           <Col xs={12} md={10} lg={10}>
-            <Button
-              className="button-container"
-              darkMode={true}
-              disabled={false}
-              href="/patient"
-            >
-              Patient View
-            </Button>
-            <Button
-              className="button-container"
-              darkMode={true}
-              disabled={false}
-              href="/cases"
-            >
-              Cases View
-            </Button>
-            <Button
-              className="button-container"
-              darkMode={true}
-              disabled={false}
-              href="/upload"
-            >
-              Upload View
-            </Button>
-            {/* <div className="searchInput-container">
-              <SearchInput
-                id="accountName"
+          <SearchInput
+                id="patientName"
                 className="fieldMargin"
-                value={accountInfo}
-                onChange={(event) => searchAccount(event)}
-                aria-label="Account Name"
+                value={patientInfo}
+                onChange={(event) => searchPatient(event)}
+                aria-label="Patient Name"
               >
-                {accountList.map((acct: any, index) => {
+                {patientList.map((patient: any, index) => {
                   return (
                     <SearchResult
-                      onClick={() => selectAccount(acct)}
+                      onClick={() => selectPatient(patient)}
+                      // onClick={() => alert({ acct })}
                       key={index}
                     >
-                      {acct.nm} - {acct.owner}
+                      {patient.name} - {patient.patient_id}
                     </SearchResult>
                   );
                 })}
               </SearchInput>
-            </div> */}
-            {/* <TextInput
-              label="Patient Name"
-              description=" "
-              placeholder="your.email@example.com"
-              onChange={(event) => {
-                console.log(event.target.value);
-              }}
-              value={value}
-            /> */}
-            {/* <Button
-              className="button-container"
-              darkMode={true}
-              disabled={false}
-            >
-              Generate patient synopsis
-            </Button> */}
-            {/* <Callout title="Title">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </Callout> */}
-            {/* <Card className="card-styles" as="article">
-              This is my card component
-            </Card> */}
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row className="content">
+          <Col></Col>
+          <Col xs={12} md={10} lg={10}>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row className="content">
+          <Col></Col>
+          <Col xs={12} md={10} lg={10}>
+              <Card as="article" contentStyle="clickable">
+          
+              <H3 className="title">Summary of the last visits for </H3>
+              <Body className="body">{summary}</Body>
+            </Card>
           </Col>
           <Col></Col>
         </Row>
