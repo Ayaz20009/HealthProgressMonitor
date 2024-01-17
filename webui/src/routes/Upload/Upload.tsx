@@ -7,6 +7,10 @@ import { Col, Row } from "react-bootstrap";
 import FileUpload from "../../components/FileUpload/FileUpload";
 import { useDropzone } from "react-dropzone";
 
+import Card from "@leafygreen-ui/card";
+import { H2, H3, Body } from "@leafygreen-ui/typography";
+
+import Toast from "@leafygreen-ui/toast";
 import Button from "@leafygreen-ui/button";
 
 import TextArea from "@leafygreen-ui/text-area";
@@ -21,6 +25,9 @@ export const Upload = () => {
   const [file, setFile] = useState<any>();
   const [notesValue, setNotesValue] = useState("");
   const [casesCards, setCasesCards] = useState([]);
+  const [similarSummary, setSimilarSummary] = useState([]);
+  const [successToastOpen, setSuccessToastOpen] = useState(false);
+  const [progressToastOpen, setProgressToastOpen] = useState(false);
 
   useEffect(() => {
     //Runs only on the first render
@@ -36,27 +43,27 @@ export const Upload = () => {
   };
 
   const upload = async () => {
+    setSuccessToastOpen(false);
+    setProgressToastOpen(true);
     if (user === undefined) return;
     setCasesCards([])
 
-
     const result = await user.functions.similarityCheck(notesValue);
     setCasesCards(result)
+    console.log(notesValue);
     console.log(result);
+    let doctorNotesArray = result.map(doc => doc.doctor_notes);
+    console.log(doctorNotesArray);
+    let queryObj = {
+      "queryObj": notesValue,
+      "similarObjs": doctorNotesArray
+    }
+    const similarDocsSummary = await user.functions.similaritiesBetweenDocuments(queryObj);
+    setSimilarSummary(similarDocsSummary)
+    setSuccessToastOpen(true);
+    setProgressToastOpen(false);
+    console.log(similarDocsSummary);
   };
-
-  const onDrop = useCallback(async (acceptedFiles) => {
-    if (typeof acceptedFiles === undefined) return;
-
-    console.log(acceptedFiles);
-    setFile(acceptedFiles);
-
-    // const url = `https://us-east4.gcp.data.mongodb-api.com/app/testing-yeyvp/endpoint/uploadingfile`;
-    const fd = new FormData();
-    fd.append("file", acceptedFiles);
-  }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
     <Layout>
@@ -83,6 +90,35 @@ export const Upload = () => {
                 <CasesCard cardData={casesCards} />
             </Col>
         </Row>
+        <Row className="content">
+          <Col></Col>
+          <Col xs={12} md={10} lg={10}></Col>
+          <Col></Col>
+        </Row>
+        <Row className="content">
+          <Col></Col>
+          <Col xs={12} md={10} lg={10}>
+            <Card as="article" contentStyle="clickable">
+              {/* <H3 className="title">Summary of the last visits for </H3> */}
+              <Body className="body">{similarSummary}</Body>
+            </Card>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Toast
+          variant="progress"
+          title="Creating Summary of the patient's last visits"
+          body="Sending your notes to our super computers"
+          open={progressToastOpen}
+          close={() => setProgressToastOpen(false)}
+        />
+        <Toast
+          variant="success"
+          title="Summary created successfully"
+          body=""
+          open={successToastOpen}
+          close={() => setSuccessToastOpen(false)}
+        />
     </div>
     </Layout>
   );
