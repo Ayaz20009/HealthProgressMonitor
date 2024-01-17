@@ -20,15 +20,9 @@ export default function Header(props: HeaderProps) {
       navigate("/");
       setSelected(0);
     } else if (index === 1) {
-      navigate("/patient");
-      setSelected(1);
-    } else if (index === 2) {
-      navigate("/cases");
-      setSelected(2);
-    } else if (index === 3) {
       navigate("/upload");
-      setSelected(3);
-    }
+      setSelected(1);
+    } 
   };
 
   return (
@@ -46,10 +40,8 @@ export default function Header(props: HeaderProps) {
         selected={selected}
         aria-labelledby="tabs-label"
       >
-        <Tab name="Dashboard"></Tab>
-        <Tab name="Patient"></Tab>
-        <Tab name="Cases"></Tab>
-        <Tab name="Upload"></Tab>
+        <Tab name="Overview"></Tab>
+        <Tab name="Search Similar Cases"></Tab>
       </Tabs>
     </header>
   );
