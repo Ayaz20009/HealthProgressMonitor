@@ -1,0 +1,13 @@
+.page-container {
+    padding: 20px; /* Adds space around the entire container */
+}
+
+.fieldMargin {
+    margin-bottom: 20px; /* Adds space below the TextArea component */
+}
+
+.button-container {
+    display: block; /* Makes the button a block element */
+    margin-left: auto; /* Aligns the button to the right */
+    margin-top: 20px; /* Adds space above the button */
+}
