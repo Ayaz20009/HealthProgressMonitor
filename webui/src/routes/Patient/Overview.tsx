@@ -12,7 +12,7 @@ import Button from "@leafygreen-ui/button";
 import Card from "@leafygreen-ui/card";
 import { SearchInput, SearchResult } from "@leafygreen-ui/search-input";
 
-export const HomeComponent = () => {
+export const PatientOverview = () => {
   const [user, setUser] = useState<any>();
   const [value, setValue] = useState("");
   const [isAccountSelected, setIsAccountSelected] = useState(false);

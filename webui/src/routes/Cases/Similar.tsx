@@ -12,7 +12,7 @@ import Button from "@leafygreen-ui/button";
 import Card from "@leafygreen-ui/card";
 import { SearchInput, SearchResult } from "@leafygreen-ui/search-input";
 
-export const HomeComponent = () => {
+export const SimilarCases = () => {
   const [user, setUser] = useState<any>();
   const [value, setValue] = useState("");
   const [isAccountSelected, setIsAccountSelected] = useState(false);
@@ -125,7 +125,7 @@ export const HomeComponent = () => {
               darkMode={true}
               disabled={false}
             >
-              Generate patient synopsis
+              Find similar cases
             </Button>
             {/* <Callout title="Title">
               Lorem Ipsum is simply dummy text of the printing and typesetting
