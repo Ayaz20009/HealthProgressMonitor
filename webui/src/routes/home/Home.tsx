@@ -102,6 +102,7 @@ export const HomeComponent = () => {
 
     const response = await user.functions.create_summary(patient_id);
     setSummary(response);
+    setNotesValue(response)
     setSuccessToastOpen(true);
     setProgressToastOpen(false);
   };
@@ -111,7 +112,7 @@ export const HomeComponent = () => {
     setProgressToastOpen(true);
     if (user === undefined) return;
     setCasesCards([]);
-
+  
     const result = await user.functions.similarityCheck(notesValue);
     setCasesCards(result);
     console.log(notesValue);
@@ -199,7 +200,7 @@ export const HomeComponent = () => {
               baseFontSize={13}
               label="Notes / Input"
               description=""
-              value={summary}
+              value={notesValue}
               onChange={(event) => setNotesValue(event.target.value)}
             />
 
