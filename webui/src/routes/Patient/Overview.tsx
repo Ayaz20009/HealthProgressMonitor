@@ -78,7 +78,7 @@ export const PatientOverview = () => {
 
     const response = await user.functions.search_opp(search);
 
-    setOppsList(response.result);
+    // setOppsList(response.result);
     setDisableOpp(false);
 
     setAccountInfo(acct.nm);
@@ -102,10 +102,11 @@ export const PatientOverview = () => {
                 {accountList.map((acct: any, index) => {
                   return (
                     <SearchResult
-                      onClick={() => selectAccount(acct)}
+                      // onClick={() => selectAccount(acct)}
+                      onClick={() => alert({ acct })}
                       key={index}
                     >
-                      {acct.nm} - {acct.owner}
+                      {acct.name}
                     </SearchResult>
                   );
                 })}
