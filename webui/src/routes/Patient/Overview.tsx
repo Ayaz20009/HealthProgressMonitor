@@ -63,7 +63,7 @@ export const PatientOverview = () => {
 
     let search = { searchTerm: searchQuery };
 
-    const response = await user.functions.search_account(search);
+    const response = await user.functions.search_patient_name_auto(search);
 
     setAccountList(response.result);
 
