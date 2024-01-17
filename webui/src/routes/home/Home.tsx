@@ -36,7 +36,6 @@ export const HomeComponent = () => {
   const [isPatientSelected, setIsPatientSelected] = useState(false);
   const [summary, setSummary] = useState("");
 
-
   useEffect(() => {
     //Runs only on the first render
     loginApiKey(process.env.REACT_APP_REALM_API_KEY); // add generated API key in .env file
@@ -73,25 +72,23 @@ export const HomeComponent = () => {
     const response = await user.functions.search_patient_name_auto(search);
 
     setPatientList(response.result);
-
   };
 
   const selectPatient = async (patient: any) => {
     setIsPatientSelected(true);
     console.log(patient);
-    
-    setPatientInfo(patient.name)
+
+    setPatientInfo(patient.name);
     let patient_id = patient.patient_id;
 
     setSuccessToastOpen(false);
     setProgressToastOpen(true);
 
     const response = await user.functions.create_summary(patient_id);
-    setSummary(response)
+    setSummary(response);
     setSuccessToastOpen(true);
     setProgressToastOpen(false);
     console.log(response);
-    
   };
 
   return (
@@ -100,41 +97,46 @@ export const HomeComponent = () => {
         <Row className="content">
           <Col></Col>
           <Col xs={12} md={10} lg={10}>
-          <SearchInput
-                id="patientName"
-                className="fieldMargin"
-                value={patientInfo}
-                onChange={(event) => searchPatient(event)}
-                aria-label="Patient Name"
-              >
-                {patientList.map((patient: any, index) => {
-                  return (
-                    <SearchResult
-                      onClick={() => selectPatient(patient)}
-                      // onClick={() => alert({ acct })}
-                      key={index}
-                    >
-                      {patient.name} - {patient.patient_id}
-                    </SearchResult>
-                  );
-                })}
-              </SearchInput>
+            <SearchInput
+              id="patientName"
+              className="fieldMargin"
+              value={patientInfo}
+              onChange={(event) => searchPatient(event)}
+              aria-label="Patient Name"
+            >
+              {patientList.map((patient: any, index) => {
+                return (
+                  <SearchResult
+                    onClick={() => selectPatient(patient)}
+                    // onClick={() => alert({ acct })}
+                    key={index}
+                  >
+                    {patient.name} - {patient.patient_id}
+                  </SearchResult>
+                );
+              })}
+            </SearchInput>
           </Col>
           <Col></Col>
         </Row>
         <Row className="content">
           <Col></Col>
-          <Col xs={12} md={10} lg={10}>
-          </Col>
+          <Col xs={12} md={10} lg={10}></Col>
           <Col></Col>
         </Row>
         <Row className="content">
           <Col></Col>
           <Col xs={12} md={10} lg={10}>
-              <Card as="article" contentStyle="clickable">
+            <Card as="article" contentStyle="clickable">
               <H3 className="title">Summary of the last visits for </H3>
               <Body className="body">{summary}</Body>
             </Card>
+            <iframe
+              className="embedded-chart"
+              width="640"
+              height="480"
+              src="https://charts.mongodb.com/charts-hackathon-fy24-wkkws/embed/charts?id=65a8019c-feab-4394-8193-982f39323a91&maxDataAge=3600&theme=light&autoRefresh=true"
+            ></iframe>
           </Col>
           <Col></Col>
         </Row>
