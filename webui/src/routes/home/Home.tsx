@@ -138,7 +138,8 @@ export const HomeComponent = () => {
           <Col xs={12} md={10} lg={10}>
             <SearchInput
               id="patientName"
-              className="fieldMargin"
+              className="searchInputStyle"
+              size="large"
               value={patientInfo}
               onChange={(event) => searchPatient(event)}
               aria-label="Patient Name"
@@ -164,57 +165,58 @@ export const HomeComponent = () => {
           <Col></Col>
         </Row>
         <Row className="content">
-          <Col></Col>
-          <Col xs={12} md={10} lg={10}>
-            {/* <iframe
-              className="embedded-chart"
-              width="640"
-              height="480"
-              src="https://charts.mongodb.com/charts-hackathon-fy24-wkkws/embed/charts?id=65a8019c-feab-4394-8193-982f39323a91&maxDataAge=3600&theme=light&autoRefresh=true"
-            ></iframe> */}
-            <div className="charts">
-              <Chart
-                height={"600px"}
-                width={"800px"}
-                filter={filterPatient}
-                chartId={"65a8019c-feab-4394-8193-982f39323a91"}
-              />
-              <Chart
-                height={"600px"}
-                width={"800px"}
-                filter={filterPatient}
-                chartId={"65a821fa-2d96-48b7-8be4-d84ebac4cdfd"}
-              />
-            </div>
-            <Card as="article" contentStyle="clickable">
-              <H3 className="title">
-                Summary of the last visits for {patientInfo}
-              </H3>
-              <Body className="body">{summary}</Body>
-            </Card>
+  <Col></Col>
+  <Col xs={12} md={10} lg={10}>
+    <Row>
+      {/* Chart 1 */}
+      <Col md={6}>
+        <Chart
+          height={"600px"}
+          width={"100%"} // Set to 100% to use full width of the column
+          filter={filterPatient}
+          chartId={"65a8019c-feab-4394-8193-982f39323a91"}
+        />
+      </Col>
+      
+      {/* Chart 2 */}
+      <Col md={6}>
+        <Chart
+          height={"600px"}
+          width={"100%"} // Set to 100% to use full width of the column
+          filter={filterPatient}
+          chartId={"65a821fa-2d96-48b7-8be4-d84ebac4cdfd"}
+        />
+      </Col>
+    </Row>
 
-            <TextArea
-              className="fieldMargin"
-              baseFontSize={13}
-              label="Notes / Input"
-              description=""
-              // value={notesValue}
-              value={summary}
-              onChange={(event) => setNotesValue(event.target.value)}
-            />
-            {/* <FileUpload onDrop={onDrop} /> */}
-            <Button
-              className="button-container"
-              darkMode={true}
-              disabled={false}
-              onClick={upload}
-            >
-              Find Similar Cases
-            </Button>
-            <CasesCard cardData={casesCards} />
-          </Col>
-          <Col></Col>
-        </Row>
+    <Card as="article" contentStyle="clickable">
+      <H3 className="title">Summary of the last visits for {patientInfo}</H3>
+      <Body className="body">{summary}</Body>
+    </Card>
+
+    <TextArea
+      className="fieldMargin"
+      baseFontSize={13}
+      label="Notes / Input"
+      description=""
+      value={summary}
+      onChange={(event) => setNotesValue(event.target.value)}
+    />
+
+    <Button
+      className="button-container"
+      darkMode={true}
+      disabled={false}
+      onClick={upload}
+    >
+      Find Similar Cases
+    </Button>
+
+    <CasesCard cardData={casesCards} />
+  </Col>
+  <Col></Col>
+</Row>
+
 
         <Row className="content">
           <Col></Col>
