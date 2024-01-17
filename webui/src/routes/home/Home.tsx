@@ -5,6 +5,7 @@ import Layout from "../../components/Layout/Layout";
 import { useState, useEffect } from "react";
 import { app } from "../../realmApp/realmApp";
 import * as Realm from "realm-web";
+import axios from "axios";
 
 import Toast from "@leafygreen-ui/toast";
 import { H2, H3, Body } from "@leafygreen-ui/typography";
@@ -14,6 +15,8 @@ import Callout from "@leafygreen-ui/callout";
 import Button from "@leafygreen-ui/button";
 import Card from "@leafygreen-ui/card";
 import { SearchInput, SearchResult } from "@leafygreen-ui/search-input";
+//
+import Chart from "../../components/Charts/Chart";
 
 export const HomeComponent = () => {
   const [user, setUser] = useState<any>();
@@ -30,11 +33,22 @@ export const HomeComponent = () => {
   const [checkupsList, setCheckupsList] = useState([]);
 
   const [patientList, setPatientList] = useState([]);
-
   const [patientInfo, setPatientInfo] = useState("");
 
   const [isPatientSelected, setIsPatientSelected] = useState(false);
   const [summary, setSummary] = useState("");
+
+  // CHARTS stuff //
+  // const url = "https://charts.mongodb.com/charts-hackathon-fy24-wkkws";
+  // const [patients, setPatients] = useState([]);
+  const [selectedPatient, setSelectedPatient] = useState("");
+  const [filterPatient, setFilterPatient] = useState({});
+
+  useEffect(() => {
+    if (selectedPatient !== "") {
+      setFilterPatient({ patient: selectedPatient });
+    }
+  }, [selectedPatient]);
 
   useEffect(() => {
     //Runs only on the first render
@@ -80,6 +94,7 @@ export const HomeComponent = () => {
 
     setPatientInfo(patient.name);
     let patient_id = patient.patient_id;
+    setFilterPatient({ patient_id: patient_id });
 
     setSuccessToastOpen(false);
     setProgressToastOpen(true);
@@ -90,6 +105,16 @@ export const HomeComponent = () => {
     setProgressToastOpen(false);
     console.log(response);
   };
+
+  const findAllPatients = async () => {
+    const response = await user.functions.findAllPatients();
+    setPatientList(response);
+  };
+
+  useEffect(() => {
+    findAllPatients();
+    return;
+  }, []);
 
   return (
     <Layout>
@@ -127,16 +152,42 @@ export const HomeComponent = () => {
         <Row className="content">
           <Col></Col>
           <Col xs={12} md={10} lg={10}>
-            <Card as="article" contentStyle="clickable">
-              <H3 className="title">Summary of the last visits for </H3>
-              <Body className="body">{summary}</Body>
-            </Card>
-            <iframe
+            {/* <iframe
               className="embedded-chart"
               width="640"
               height="480"
               src="https://charts.mongodb.com/charts-hackathon-fy24-wkkws/embed/charts?id=65a8019c-feab-4394-8193-982f39323a91&maxDataAge=3600&theme=light&autoRefresh=true"
-            ></iframe>
+            ></iframe> */}
+            {/* <div className="form">
+              {!patientList
+                ? "Loading patient list"
+                : patientList.map((p) => (
+                    <div className="elem" key={p}>
+                      <input
+                        type="radio"
+                        name="patient"
+                        value={p}
+                        onChange={() => setSelectedPatient(p)}
+                        checked={p === selectedPatient}
+                      />
+                      <label htmlFor={p} title={p}>
+                        {p}
+                      </label>
+                    </div>
+                  ))}
+            </div> */}
+            <div className="charts">
+              <Chart
+                height={"600px"}
+                width={"800px"}
+                filter={filterPatient}
+                chartId={"65a8019c-feab-4394-8193-982f39323a91"}
+              />
+            </div>
+            <Card as="article" contentStyle="clickable">
+              <H3 className="title">Summary of the last visits for </H3>
+              <Body className="body">{summary}</Body>
+            </Card>
           </Col>
           <Col></Col>
         </Row>
