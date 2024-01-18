@@ -1,0 +1,151 @@
+[{
+  "_id": {
+    "$oid": "65a7077ea6c7d2e7e306fcaa"
+  },
+  "patient_id": "001",
+  "name": "Olivia Jones",
+  "age": 28,
+  "gender": "Female",
+  "address": "456 Pine St",
+  "contact": "555-1111",
+  "blood_type": "A+",
+  "allergies": [
+    "Penicillin",
+    "Pollen",
+    "Dust"
+  ],
+  "conditions": [],
+  "medications": [
+    {
+      "name": "Tylenol",
+      "dosage": "50mg",
+      "frequency": "As needed"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a7077ea6c7d2e7e306fcab"
+  },
+  "patient_id": "002",
+  "name": "Liam Radinovic",
+  "age": 32,
+  "gender": "Male",
+  "address": "789 Oak Ave",
+  "contact": "555-2222",
+  "blood_type": "B+",
+  "allergies": [
+    "Dust",
+    "Peanuts",
+    "Shellfish"
+  ],
+  "conditions": [
+    "Asthma"
+  ],
+  "medications": [
+    {
+      "name": "Zyrtec",
+      "dosage": "50mg",
+      "frequency": "Once daily"
+    },
+    {
+      "name": "Singulair",
+      "dosage": "100mg",
+      "frequency": "Twice daily"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a7077ea6c7d2e7e306fcac"
+  },
+  "patient_id": "003",
+  "name": "Sophia Smith",
+  "age": 37,
+  "gender": "Female",
+  "address": "101 Maple Blvd",
+  "contact": "555-3333",
+  "blood_type": "O+",
+  "allergies": [
+    "Mold",
+    "Tree Nuts",
+    "Wheat"
+  ],
+  "conditions": [],
+  "medications": [
+    {
+      "name": "Prozac",
+      "dosage": "50mg",
+      "frequency": "Once daily"
+    },
+    {
+      "name": "Lipitor",
+      "dosage": "100mg",
+      "frequency": "Twice daily"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a7077ea6c7d2e7e306fcad"
+  },
+  "patient_id": "004",
+  "name": "Noah Sark",
+  "age": 42,
+  "gender": "Male",
+  "address": "202 Elm St",
+  "contact": "555-4444",
+  "blood_type": "AB+",
+  "allergies": [
+    "Peanuts",
+    "Shellfish",
+    "Cats"
+  ],
+  "conditions": [
+    "Chronic Pain"
+  ],
+  "medications": [
+    {
+      "name": "Albuterol",
+      "dosage": "50mg",
+      "frequency": "Once daily"
+    },
+    {
+      "name": "Ambien",
+      "dosage": "100mg",
+      "frequency": "Twice daily"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a7077ea6c7d2e7e306fcae"
+  },
+  "patient_id": "005",
+  "name": "Bob Johnson",
+  "age": 48,
+  "gender": "Female",
+  "address": "303 Cedar Dr",
+  "contact": "555-5555",
+  "blood_type": "O+",
+  "allergies": [
+    "Shellfish",
+    "Cats",
+    "Eggs"
+  ],
+  "conditions": [
+    "Migraines"
+  ],
+  "medications": [
+    {
+      "name": "Aspirin",
+      "dosage": "50mg",
+      "frequency": "Once daily"
+    },
+    {
+      "name": "Advil",
+      "dosage": "100mg",
+      "frequency": "Twice daily"
+    }
+  ]
+}]
