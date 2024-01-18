@@ -1,0 +1,32 @@
+{
+  "_id": {
+    "$oid": "65a7077ea6c7d2e7e306fcab"
+  },
+  "patient_id": "002",
+  "name": "Liam Radinovic",
+  "age": 32,
+  "gender": "Male",
+  "address": "789 Oak Ave",
+  "contact": "555-2222",
+  "blood_type": "B+",
+  "allergies": [
+    "Dust",
+    "Peanuts",
+    "Shellfish"
+  ],
+  "conditions": [
+    "Asthma"
+  ],
+  "medications": [
+    {
+      "name": "Zyrtec",
+      "dosage": "50mg",
+      "frequency": "Once daily"
+    },
+    {
+      "name": "Singulair",
+      "dosage": "100mg",
+      "frequency": "Twice daily"
+    }
+  ]
+}
