@@ -46,7 +46,7 @@ __2. Configure Atlas Environment__
 __3. Load Data Into A Collection In The Atlas Cluster__
 * In a new terminal/shell from the base folder of this proof, run the following command to generate partly templated, partly randomly generated JSON documents representing patient visits and doctor's notes into the database collection _health_progress_monitor.patients_col_
   ```bash
-  mgeneratejs healthmonitor_patients.json -n 100 | mongoimport --uri "mongodb+srv://main_user:MyPassword@testcluster-abcde.mongodb.net/health_progress_monitor" --collection patients_col
+  mgeneratejs genrecord.js -n 100 | mongoimport --uri "mongodb+srv://main_user:MyPassword@testcluster-abcde.mongodb.net/health_progress_monitor" --collection patients_col
   ```
  &nbsp;&nbsp;&nbsp; __Note 1__: First replace the password and address with the values captured earlier
 
