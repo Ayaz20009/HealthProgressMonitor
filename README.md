@@ -89,7 +89,7 @@ cd HealthProgressMonitor/webui/
 npm install
 ```
 
-### Step 3 - create a .env file
+### Step 4 - create a .env file
 
 In the webui folder, create a .env file and add the following fields
 
@@ -100,7 +100,7 @@ REACT_APP_URL="http://localhost:3000"
 REACT_APP_REALM_API_KEY=<CREATE THIS IN REALM APP>  
 ```
 
-### Step 4 - create an API in the Realm app 
+### Step 5 - create an API in the Realm app 
 
 Realm App used for this project can be found here - https://realm.mongodb.com/groups/65a6ad137bb2276a687a4f2d/apps/65a6e4fb11b3c7f0a55b44a0/dashboard
 
@@ -108,7 +108,7 @@ Navigate to Authentication tab
 Use API key provider
 Create a new API Key and use that in .env file
 
-### Step 5 - run the project
+### Step 6 - run the project
 
 ```
 npm start
