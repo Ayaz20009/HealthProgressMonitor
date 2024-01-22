@@ -69,36 +69,45 @@ __6. Configure OpenAI API Key__
 
 Now that the demo environments have been configured, we will launch the web UI, configure our Atlas triggers, and finally test the functionality through the UI.
 
-__1. Step 1 Clone project
+### Step 1 Clone project
 
-* To set up the Front-end project first clone the project into local repository
+To set up the Front-end project first clone the project into local repository
 
+```
 git clone https://github.com/Ayaz20009/HealthProgressMonitor.git
+```
 
-__1. Step 2 - install dependencies
+### Step 2 - install dependencies
 
-* Navigate to the webui folder and perform the following commad
-
+Navigate to the webui folder and perform the following command
+  
+```
 npm install
+```
 
-_1. Step 3 - create a .env file
+### Step 3 - create a .env file
 
-* In the webup folder, create a .env file and add the following fields
+In the webup folder, create a .env file and add the following fields
 
-# ALL THE VARIABLES ACCESSED IN THE APP NEED TO START WITH THE STRING REACT_APP_
-PORT="3000"
-REACT_APP_APPLICATION_ID="vectorapp-wjwwr"
-REACT_APP_URL="http://localhost:3000"
-REACT_APP_REALM_API_KEY=<CREATE THIS IN REALM APP>
+```
+PORT="3000"  
+REACT_APP_APPLICATION_ID="vectorapp-wjwwr"  
+REACT_APP_URL="http://localhost:3000"  
+REACT_APP_REALM_API_KEY=<CREATE THIS IN REALM APP>  
+```
 
-__1. Step 4 - run the project
+### Step 4 - create an API in the Realm app 
 
+Realm App used for this project can be found here - https://realm.mongodb.com/groups/65a6ad137bb2276a687a4f2d/apps/65a6e4fb11b3c7f0a55b44a0/dashboard
+
+Navigate to Authentication tab
+Use API key provider
+Create a new API Key and use that in .env file
+
+### Step 5 - run the project
+
+```
 npm start
-
+```
 ---
 
-## Measurement
-
-* Measurement 1 Details.
-* Measurement 2 Details.
-* Measurement 3 Details.
