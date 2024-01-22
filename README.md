@@ -69,17 +69,21 @@ __6. Configure OpenAI API Key__
 
 Now that the demo environments have been configured, we will launch the web UI, configure our Atlas triggers, and finally test the functionality through the UI.
 
-### Step 1 Clone project
-
 To set up the Front-end project first clone the project into local repository
+
+### Step 1 Clone project
 
 ```
 git clone https://github.com/Ayaz20009/HealthProgressMonitor.git
 ```
 
-### Step 2 - install dependencies
+### Step 2 - Navigate to webui
 
-Navigate to the webui folder and perform the following command
+```
+cd HealthProgressMonitor/webui/
+```
+
+### Step 3 - install dependencies
   
 ```
 npm install
@@ -87,7 +91,7 @@ npm install
 
 ### Step 3 - create a .env file
 
-In the webup folder, create a .env file and add the following fields
+In the webui folder, create a .env file and add the following fields
 
 ```
 PORT="3000"  
